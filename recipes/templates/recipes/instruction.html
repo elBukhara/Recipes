@@ -1,0 +1,162 @@
+{% extends "recipes/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<h1 class="d-none" id="meal-id">{{ id }}</h1>
+
+<div class="alert alert-danger d-none" id="bookmark-warning-alert" role="alert">
+  You have to sign in to be able to bookmark!
+</div>
+<div id="checkout">
+<main>
+    <div class="container py-1 mt-3">
+        <div class="p-3 bg-light rounded-3 border border-2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="py-3 text-center">
+                        <img src="" alt="" class="img-responsive rounded-3" style="width: 95%;" id="recipe-img">
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="p-3">
+                        <h1 class="display-7 fw-bold" id="meal-name"></h1>
+                        <p class="col-sm-8">
+                            <p class="fs-4">Category: <span id="meal-category"></span></p>
+                            <p class="fs-4">Area: <span id="meal-area"></span></p>
+                            <p class="fs-4" id="tags-check">Tags: <span id="meal-tags" class="text-wrap"></span></p>
+                        </p>
+                        {% if request.user.is_authenticated %}
+                          {% if Added %}
+                          <button class="btn btn-outline-warning btn-lg" id="bookmark-btn">
+                            <i class="bi bi-bookmarks notAdded" id="bookmark-icon" ></i> 
+                            <span id="bookmark-text">Delete from Bookmarks</span>
+                          </button>
+                          {% else %}
+                          <button class="btn btn-outline-warning btn-lg" id="bookmark-btn">
+                            <i class="bi bi-bookmarks-fill added" id="bookmark-icon" ></i> 
+                            <span id="bookmark-text">Add to Bookmarks</span>
+                          </button>
+                          {% endif %}
+                        {% else %}
+                        <button class="btn btn-outline-warning btn-lg" id="bookmark-btn-test" onclick="bookmarkWarning()">
+                          <i class="bi bi-bookmarks-fill added" id="bookmark-icon"></i> 
+                          <span id="bookmark-text">Add to Bookmarks</span>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<section>
+    <div class="container py-4">
+        <div class="row align-items-md-stretch">
+            <div class="col-md-4">
+                <div class="h-100 p-4 text-white border border-2 rounded-3">
+                    <h2 style="color: #f7a325;">Ingredients</h2>
+                    <ul id="meal-ingredient-list" class="list-group bg-transparent">
+                        <li>Item 1 <span class="meal-meausure"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+            <div class="h-100 p-4 bg-light border border-2 rounded-3">
+                <h2>Instructions:</h2>
+                <p><span id="instruction"></span></p>
+            </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- COMMENT SECTION -->
+<div class="container my-2">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h3 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed" style="color: #f7a325; font-size: 1.5rem;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Comments
+          </button>
+        </h3>
+  
+        
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+
+            <div class="alert alert-danger d-none" id="warning-alert" role="alert">
+              You have to sign in to be able to leave comments!
+            </div>
+            {% if request.user.is_authenticated%}
+            {% csrf_token %}
+            <form action="{% url 'comment' id %}" method="POST">
+              <div class="form-group border-bottom border-gray">
+                <label for="exampleFormControlTextarea1">Leave a Comment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" minlength="15" name="text" id="keyboard" required></textarea>
+        
+                <button type="submit" id="comment_submit" class="btn btn-outline-warning my-3">Submit</button>
+              </div>
+            </form>
+            {% else %}
+              
+              <div class="form-group border-bottom border-gray">
+                <label for="exampleFormControlTextarea1">Leave a Comment</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" minlength="15" name="text" required></textarea>
+        
+                <button type="submit" class="btn btn-outline-primary my-3" onclick="warning()">Submit</button>
+              </div>
+            {% endif %}
+  
+            <div id="comments">
+              
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>
+
+<style>
+    #bookmark-btn:hover,
+    #bookmark-btn:hover #bookmark-text {
+      color: #fff;
+    }
+
+    #bookmark-btn-test:hover,
+    #bookmark-btn-test:hover #bookmark-text {
+      color: #fff;
+    }
+
+    main span {
+        color: #f7a325;
+    }
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .media div {
+      display: flex;
+      justify-content: space-between;
+    }
+</style>
+
+<script src="{% static 'recipes/recipePage.js' %}"></script>
+
+
+{% endblock body %}

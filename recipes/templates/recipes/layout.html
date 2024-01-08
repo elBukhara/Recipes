@@ -1,0 +1,150 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicioussy</title>
+    <link href="{% static 'recipes/index.css' %}" rel="stylesheet"> 
+    <link href="{% static 'recipes/images/icon.ico' %}" rel="icon">       
+
+    <!-- BOOTSTRAP CDN LINK -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- BOOTSTRAP CDN LINK -->
+
+    <!-- FONT AWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- FONT AWESOME CDN -->
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-sm" id="navbar">
+  <a href="{% url 'index' %}" class="navbar-brand" id="logo"><img src="{% static 'recipes/images/logo4.png' %}" alt=""></a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+    <span><i class="fa-solid fa-bars"></i></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="mynavbar">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a href="{% url 'index' %}" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'suggestion' %}" class="nav-link">Recipes</a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'search' %}" class="nav-link">Filter</a>
+      </li>
+      {% if request.user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'profile' %}" class="nav-link">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'logout' %}" class="nav-link">Log Out</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
+          <a href="{% url 'login' %}" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'register' %}" class="nav-link">Register</a>
+        </li>
+      {% endif %}
+      
+    </ul>
+
+    <form class="d-flex">
+      <input type="text" class="form-control me-2" placeholder="Search" required>
+      <button type="submit" class="my-btn" id="search-fake">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- Navbar End -->
+
+
+<!-- MODAL RECIPE START -->
+<div class="modal fade" id="view-recipe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <div class="col text-center">
+              <img src="" alt="" class="img-responsive" id="preview-recipe-img">
+              <p class="fs-5 d-block">Category: <span id="category"></span></p>
+              <p class="fs-5 d-block">Area: <span id="area"></span></p>
+          </div>
+          <div class="container">
+              <div class="line mt-3" style="width: 100%; height: 1px; background-color: #f7a325;"></div>
+          </div>
+          <div class="col mt-2">
+              
+              <h3 class="text-center">Ingredients</h3>
+              <ul id="ingredient-list" class="list-group bg-transparent">
+                <li>Item 1 <span class="meausure"></span></li>
+              </ul>
+          </div>   
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="my-btn" id="render-instruction-page" value="">Instruction</button>
+      </div>
+      </div>
+  </div>
+</div>
+<!-- MODAL RECIPE END -->
+
+
+{% block body %}
+{% endblock %}
+
+
+<footer id="footer">
+    <div class="f-content">
+      <div class="f-logo"><img src="{% static 'recipes/images/logo4.png' %}" alt=""></div>
+      <i class="fa-brands fa-twitter"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-youtube"></i>
+      <i class="fa-brands fa-twitter"></i>
+    </div>
+    <br>
+    <div class="c-content">
+      &copy; All meals are from an external database. Credit goes to <a href="https://www.themealdb.com/">TheMealDB</a> <br>
+      <span>Created By <a href="#">Shakhzod</a></span>
+    </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    document.querySelector('#render-instruction-page').addEventListener('click', () => {        
+      
+      const id = document.querySelector('#render-instruction-page').value
+      
+      window.location.href = "instruction/" + id;
+    })
+
+    document.querySelector('#search-fake').addEventListener('click', (event) => {
+      
+      event.preventDefault();
+      window.location.href = "search";
+
+    })
+  })
+</script>
+
+</body>
+</html>
