@@ -1,0 +1,397 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<section class="py-5 text-center bg-image" style="background-image: url({% static "images/download.png" %})">
+  <div class="container">
+      <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light text-white">Happy cooking!</h1>
+          <p class="lead text-white">Whether you're looking to impress your guests or simply explore new flavors, our recipe collection is here to guide you through an exciting culinary journey. Get ready to unleash your inner chef and create incredible meals that will leave a lasting impression on your loved ones.</p>
+      </div>
+      </div>
+  </div>
+</section>
+
+
+<section class="menu" id="menu">
+  <h3><span id="recommended-recipes">View Recipes</span></h3>
+  <h2>Filter Your Search <i class="fa-solid fa-arrow-down"></i></h2>
+
+  <!-- search recipe by NAME -->
+  <form class="d-flex my-3">
+    <input type="text" minlength="1" class="form-control me-2" placeholder="Search by the name" autocomplete="off" required id="search-query">
+    <button type="submit" class="my-btn" id="search">Search</button>
+  </form>
+
+  <div class="accordion" id="accordionExample">
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        Category
+      </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+
+        <div id="category-checkboxes">
+          <div class="row">
+
+            <div class="col-sm-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Beef" id="category1">
+                <label class="form-check-label" for="category1">
+                    Beef
+                </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Breakfast" id="category2">
+                  <label class="form-check-label" for="category2">
+                      Breakfast
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Chicken" id="category3">
+                  <label class="form-check-label" for="category3">
+                      Chicken
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Dessert" id="category4">
+                  <label class="form-check-label" for="category4">
+                      Dessert
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Goat" id="category5">
+                  <label class="form-check-label" for="category5">
+                      Goat
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Lamb" id="category6">
+                  <label class="form-check-label" for="category6">
+                      Lamb
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Miscellaneous" id="category7">
+                  <label class="form-check-label" for="category7">
+                      Miscellaneous
+                  </label>
+              </div>
+            </div>
+
+            
+            <div class="col-sm-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Pasta" id="category8">
+                <label class="form-check-label" for="category8">
+                    Pasta
+                </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Pork" id="category9">
+                  <label class="form-check-label" for="category9">
+                      Pork
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Seafood" id="category10">
+                  <label class="form-check-label" for="category10">
+                      Seafood
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Side" id="category11">
+                  <label class="form-check-label" for="category11">
+                      Side
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Starter" id="category12">
+                  <label class="form-check-label" for="category12">
+                      Starter
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Vegan" id="category13">
+                  <label class="form-check-label" for="category13">
+                      Vegan
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Vegetarian" id="category14">
+                  <label class="form-check-label" for="category14">
+                      Vegetarian
+                  </label>
+              </div>
+            </div>
+
+          </div>
+        
+          <button class="btn btn-outline-warning" type="submit" id="renderCategory">Search</button>
+        </div>
+        
+      </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Area
+      </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+
+          <div id="area-checkboxes">
+
+            <div class="row">
+        
+              <div class="col-sm-6">
+        
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="American" id="area1">
+                  <label class="form-check-label" for="area1">
+                    American
+                  </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="British" id="area2">
+                    <label class="form-check-label" for="area2">
+                        British
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Canadian" id="area3">
+                    <label class="form-check-label" for="area3">
+                        Canadian
+                    </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Chinese" id="area4">
+                  <label class="form-check-label" for="area4">
+                    Chinese
+                  </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Croatian" id="area5">
+                    <label class="form-check-label" for="area5">
+                        Croatian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Dutch" id="area6">
+                    <label class="form-check-label" for="area6">
+                        Dutch
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Egyptian" id="area7">
+                    <label class="form-check-label" for="area7">
+                        Egyptian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Filipino" id="area8">
+                    <label class="form-check-label" for="area8">
+                        Filipino
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="French" id="area9">
+                    <label class="form-check-label" for="area9">
+                        French
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Greek" id="area10">
+                    <label class="form-check-label" for="area10">
+                        Greek
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Indian" id="area11">
+                    <label class="form-check-label" for="area11">
+                        Indian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Irish" id="area12">
+                    <label class="form-check-label" for="area12">
+                        Irish
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Italian" id="area13">
+                    <label class="form-check-label" for="area13">
+                        Italian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Jamaican" id="area14">
+                    <label class="form-check-label" for="area14">
+                        Jamaican
+                    </label>
+                </div>
+        
+              </div>
+        
+              
+              <div class="col-sm-6">
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="Japanese" id="area15">
+                  <label class="form-check-label" for="area15">
+                      Japanese
+                  </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Kenyan" id="area16">
+                    <label class="form-check-label" for="area16">
+                        Kenyan
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Malaysian" id="area17">
+                    <label class="form-check-label" for="area17">
+                        Malaysian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Mexican" id="area18">
+                    <label class="form-check-label" for="area18">
+                        Mexican
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Moroccan" id="area19">
+                    <label class="form-check-label" for="area19">
+                        Moroccan
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Polish" id="area20">
+                    <label class="form-check-label" for="area20">
+                        Polish
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Portuguese" id="area21">
+                    <label class="form-check-label" for="area21">
+                        Portuguese
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Russian" id="area22">
+                    <label class="form-check-label" for="area22">
+                        Russian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Spanish" id="area23">
+                    <label class="form-check-label" for="area23">
+                        Spanish
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Thai" id="area24">
+                    <label class="form-check-label" for="area24">
+                        Thai
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Tunisian" id="area25">
+                    <label class="form-check-label" for="area25">
+                        Tunisian
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Turkish" id="area26">
+                    <label class="form-check-label" for="area26">
+                        Turkish
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Vietnamese" id="area27">
+                    <label class="form-check-label" for="area27">
+                        Vietnamese
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="Unknown" id="area28">
+                    <label class="form-check-label" for="area28">
+                        Unknown
+                    </label>
+                </div>
+              </div>
+        
+            </div>
+          
+            <button class="btn btn-outline-warning" type="submit" id="renderArea">Search</button>
+          </div>  
+
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Ingredients
+      </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        
+        <div class="accordion-body">
+
+          <!-- search recipe by INGREDIENTS --> 
+          <form class="mt-3 d-flex">
+            <input type="text" id="search-query-filter" list="list-ingredients" minlength="1" class="form-control me-2" placeholder="Search for the ingredient..." required autocomplete="off">
+            <datalist id="list-ingredients">
+            
+            </datalist>
+    
+    
+            <button type="submit" class="my-btn" style="white-space: nowrap;" id="search-filter">Add to the filter</button>
+          </form>
+      
+          <ul id="selected-ingredients" class="list-group mt-3">
+      
+          </ul>
+          
+          <button type="button" class="btn btn-outline-warning text-center justify-content-center mt-3" id="search-filter-submit">
+            Search
+          </button>  
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- container for displaying SEARCHED meals -->
+  <div class="row" style="margin-top: 30px;" id="search-results">
+  
+  
+  </div>
+
+  <div id="view-more-categories-div"></div>
+  <div id="view-more-areas-div"></div>
+
+</section>
+
+
+<div class="container">
+    <div class="line" style="width: 100%; height: 2px; background-color: #f7a325;"></div>
+</div>
+
+<script type="module" src="{% static 'javascript/search.js' %}"></script>
+
+{% endblock body %}

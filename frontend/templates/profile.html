@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block body %}
+
+<main>
+    <div class="container py-1 mt-3">
+        <h2>Your Profile</h2>
+        <div class="p-1 bg-light rounded-3 border border-2">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="p-3 text-center">
+                        <img src="{% static 'images/user_profile.jpg' %}" alt="" class="img-responsive" style="width: 70%; border-radius: 40px;" id="recipe-img">
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="p-3">
+                        <h1 class="display-7 fw-bold" id="meal-name" style="color: #f7a325;">{% if request.user.is_authenticated %} {{ user }} {% endif %}</h1>
+                        <p class="col-sm-8">
+                            <p class="fs-4">Email: {% if request.user.is_authenticated %} {{ request.user.email }} {% endif %}</p>
+                            <p class="fs-4">Joined: {% if request.user.is_authenticated %} {{ request.user.date_joined }} {% endif %}</p>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<section>
+    <div class="container py-4">
+        <div class="row align-items-md-stretch">
+            <div class="col-md-4">
+                <div class="p-4 border border-2 rounded-3">
+                    <h2 style="color: #f7a325;">Information</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><span id="bookmarks_count">0</span> bookmarked meals.</li>
+                        <li class="list-group-item"><span id="comments_count">0</span> added comments.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="h-100 p-4 border border-2 rounded-3">
+                    <h3 class="d-none" id="no-bookmarked-meals">Your bookmarked meals will appear here. Let's scroll through the recipes!</h3>
+                    <h3 id="true-bookmarked-meals" >Bookmarks</h3>
+                    <div class="row" id="bookmarked_meals">
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container mt-5">
+    <div class="line" style="width: 100%; height: 2px; background-color: #f7a325;"></div>
+</div>
+
+<script src="{% static 'javascript/profile.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+
+{% endblock body %}

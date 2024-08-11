@@ -1,0 +1,49 @@
+main span {
+    color: #f7a325;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+#bookmarked_meals h3{
+    color: #f7a325;
+}
+#bookmarked_meals h3:hover{
+    cursor: pointer;
+}
+#bookmarked_meals img:hover{
+    cursor: pointer;
+}
+#bookmarked_meals h2{
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+#bookmarked_meals h2 i{
+    color: var(--primary_color);
+}
+#bookmarked_meals h6{
+    font-size: 16px;
+}
+.rating i{
+    color: rgb(255, 107, 8);
+    font-size: 13px;
+}
+#bookmarked_meals p{
+    margin-top: 5px;
+    font-weight: bold;
+}
+#bookmarked_meals p i{
+    float: right;
+    color: var(--primary_color);
+    cursor: pointer;
+}

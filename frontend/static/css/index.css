@@ -1,0 +1,326 @@
+:root {
+    --primary_color: #f7a325;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+    font-family: 'Josefin Sans', sans-serif;
+}
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb{
+    background: var(--primary_color);
+    border-radius: 5px;
+}
+html::-webkit-scrollbar{
+    width: 5px;
+}
+
+/* Navbar Start */
+#navbar{
+    background: transparent;
+    padding: 0px 9% 0px;
+}
+#logo img{
+    width: 100px;
+    margin: 5px 33px;
+}
+.nav-item .nav-link{
+    color: black;
+    font-size: 16px;
+    font-weight: 550;
+    transition: 0.5s;
+}
+.nav-item .nav-link:hover{
+    color: var(--primary_color);
+}
+#navbar input{
+    border-radius: 50px;
+}
+.my-btn{
+    border-radius: 15px;
+    padding: 5px 10px;
+    border: 1px solid var(--primary_color);
+    background: transparent;
+    transition: 0.5s;
+}
+.my-btn:hover{
+    background: var(--primary_color);
+    color: white;
+}
+/* Navbar End */
+
+/* BUTTON IN SIGNIN/REGISTRATION */
+
+.my-btn-2{
+    border-radius: 30px;
+    padding: 5px 10px;
+    border: 1px solid var(--primary_color);
+    background: var(--primary_color);
+    color: white;
+    transition: 0.75s;
+}
+.my-btn-2:hover{
+    background: transparent;
+    color: black;
+}
+
+/* BUTTON IN SIGNIN/REGISTRATION END */
+
+/* Home Section Start */
+.home{
+    width: 100%;
+    height: 100vh;
+    padding: 5px 11% 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+}
+.home .img{
+    width: 100%;
+    min-width: 300px;
+    max-width: 400px;
+    flex: 1 1;
+}
+.home .img img{
+    width: 100%;
+    margin-left: 60px;
+}
+.home-content{
+    flex: 1 1 400px;
+    margin-top: 30px;
+}
+.home-content h3{
+    font-size: 40px;
+    font-weight: 700;
+}
+.home-content span{
+    color: var(--primary_color);
+}
+#home-btn{
+    padding: 10px;
+    text-decoration: none;
+    background: var(--primary_color);
+    color: white;
+    border-radius: 5px;
+}
+@media screen and (max-width:873px){
+    .home .img img{
+        margin-left: 0px;
+    }
+}
+
+/* Home Section End */
+
+
+
+/* Top Section Start */
+.top-section{
+    padding: 10px 11% 100px;
+}
+.top-section h5{
+    color: var(--primary_color);
+    text-align: center;
+}
+.top-section h3{
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
+.top-section .row{
+    margin-top: 30px;
+    align-items: center;
+}
+.top-section .row .card{
+    border: none;
+}
+.top-section .row .card img{
+    width: 200px;
+    margin: auto;
+}
+.top-section .card-body{
+    text-align: center;
+}
+.top-section .card-body h1{
+    font-size: 28px;
+    font-weight: 600;
+}
+/* Top Section End */
+
+
+/* Our Menu Start */
+.menu{
+    padding: 100px 11% 100px;
+}
+.menu h3{
+    text-align: center;
+    color: var(--primary_color);
+}
+.menu h3:hover{
+    cursor: pointer;
+}
+.menu img:hover{
+    cursor: pointer;
+}
+.menu h2{
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+.menu h2 i{
+    color: var(--primary_color);
+}
+.menu h6{
+    font-size: 16px;
+}
+.rating i{
+    color: rgb(255, 107, 8);
+    font-size: 13px;
+}
+.menu p{
+    margin-top: 5px;
+    font-weight: bold;
+}
+.menu p i{
+    float: right;
+    color: var(--primary_color);
+    cursor: pointer;
+}
+/* Our Menu End */
+
+
+/* Footer Start */
+#footer{
+    padding: 15px 11% 15px;
+}
+#footer .f-content{
+    text-align: center;
+}
+.f-logo img{
+    width: 180px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.f-content i{
+    font-size: 18px;
+    color: black;
+    padding: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.f-content i:hover{
+    background: var(--primary_color);
+    color: white;
+    border-radius: 5px;
+}
+.c-content{
+    text-align: center;
+}
+.c-content a{
+    text-decoration: none;
+    color: var(--primary_color);
+    
+}
+/* Footer End */
+
+
+/* Modal */
+#view-recipe .modal-content {
+    border-radius: 30px;
+}
+#view-recipe .modal-header {
+    border-bottom: 1px solid #f7a325;
+}
+#view-recipe .modal-footer {
+    border-top: 1px solid #f7a325;
+}
+.modal-body img {
+    width: 280px;
+    border-radius: 18px;
+}
+.modal-body ul li {
+    margin-left: 35px;
+    font-size: 1.3rem;
+}
+/* Modal End */
+
+
+.ingredients {
+    display: block;
+    margin-left: 35px;
+    font-size: 1.3rem;
+}
+
+.meal-measure {
+    margin-left: 5px;
+}
+
+.measure {
+    margin-left: 5px;
+}
+
+#selected-ingredients li {
+    display: flex;
+    justify-content: space-between;
+}
+
+#accordionExample .accordion-button {
+    background-color: #fff;
+}
+
+#accordionExample .accordion-button:focus {
+    z-index: 3;
+    border-color: #fdc67d;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(253, 189, 13, 0.25);
+}
+#accordionExample .accordion-button:not(.collapsed) {
+    color: var(--primary_color);
+}
+ 
+#accordionExample .accordion-button:not(.collapsed)::after {
+    filter: brightness(0%) invert(20%);
+}
+
+
+
+/* Bottom Section Start */
+.bottom-section{
+    padding: 10px 11% 100px;
+}
+.bottom-section h5{
+    color: var(--primary_color);
+    text-align: center;
+}
+.bottom-section h3{
+    color: black;
+    text-align: center;
+    font-weight: 600;
+}
+.bottom-section .row{
+    margin-top: 30px;
+    align-items: center;
+}
+.bottom-section .row .card{
+    border: none;
+}
+.bottom-section .row .card img{
+    width: 200px;
+    margin: auto;
+}
+.bottom-section .card-body{
+    text-align: center;
+}
+.bottom-section .card-body h1{
+    font-size: 28px;
+    font-weight: 600;
+}
+/* Bottom Section End */

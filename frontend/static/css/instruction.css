@@ -1,0 +1,31 @@
+#bookmark-btn:hover,
+#bookmark-btn:hover #bookmark-text {
+  color: #fff;
+}
+
+#bookmark-btn-test:hover,
+#bookmark-btn-test:hover #bookmark-text {
+  color: #fff;
+}
+
+main span {
+    color: #f7a325;
+}
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.media div {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Home Section Start -->
+<section class="home" id="home">
+  <div class="home-content">
+    <h3>Your Favourite Food <br> Only <span>Nice</span> & <span>Delicious</span> Meals!</h3>
+    <p>Welcome to the <span>Delicoussy!</span> Here, you'll find a collection of delicious and mouthwatering recipes that will satisfy all taste buds. Whether you are a seasoned chef or a cooking novice, we have recipes suitable for all skill levels.</p>
+    <a href="{% url 'suggestion' %}" id="home-btn">Recipes</a>
+  </div>
+  <div class="img">
+    <img src="{% static 'images/landing.png' %}" alt="">
+  </div>
+</section>
+<!-- Home Section End -->
+
+<!-- Top Section Start -->
+<div class="top-section">
+  <h5>WHAT WE HAVE</h5>
+  <h3>Your Favourite Food <br> Big Database</h3>
+  <div class="row mt-5">
+
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="{% static 'images/monochromatic/img8.png' %}" alt="">
+        <div class="card-body">
+        <h1>Filter the Difficulty</h1>
+        <p>The Webisite offers various dishes to cook according to your taste <br> and desire </p>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="{% static 'images/monochromatic/img1.png' %}" alt="">
+        <div class="card-body">
+        <h1>Cooked by Experts</h1>
+        <p>Experts from various national cuisines <br> made  delicious meals specially <br> for you</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="{% static 'images/monochromatic/img3.png' %}" alt="">
+        <div class="card-body">
+        <h1>Best Quality</h1>
+        <p>Easy-to-follow instructions will <br> give you the confidence to create your <br> own culinary masterpiece</p>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Top Section End -->
+
+<div class="container">
+  <div class="line" style="width: 100%; height: 2px; background-color: #f7a325;"></div>
+</div>
+
+<!-- Our Menu Start -->
+<section class="menu" id="menu">
+  <h3>Recipes</h3>
+  <h2>Delicious Meals Are Here <i class="fa-solid fa-arrow-down"></i></h2>
+
+  <div class="row" style="margin-top: 30px;" id="suggestions">
+  
+  
+  </div>
+  <a href="{% url 'suggestion' %}" type="button" class="btn btn-outline-warning text-center justify-content-center mt-3">View More</a>
+  
+
+</section>
+<!-- Our Menu End -->
+
+<div class="container">
+  <div class="line" style="width: 100%; height: 2px; background-color: #f7a325;"></div>
+</div>
+
+<div class="bottom-section mt-5">
+  <h5>WEB'S FUNCTUONALITY</h5>
+  <h3>Interact With Others</h3>
+  <div class="row">
+
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="{% static 'images/monochromatic/img9.png' %}" alt="">
+        <div class="card-body">
+        <h1>Follow the Ingredients</h1>
+        <p>Each recipe comes with a detailed list of ingredients that you will need to recreate the dish</p>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="{% static 'images/monochromatic/img10.png' %}" alt="">
+        <div class="card-body">
+        <h1>Feedback from Others</h1>
+        <p>We value the opinions of our community, which is why we have integrated a comment section for each recipe </p>
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4 py-3 py-md-0">
+      <div class="card">
+        <img src="{% static 'images/monochromatic/img11.png' %}" alt="">
+        <div class="card-body">
+        <h1>Bookmark Meals</h1>
+        <p>With our handy bookmark feauture, you can easily save your favourite recipes for quick access in the future</p>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="line" style="width: 100%; height: 2px; background-color: #f7a325;"></div>
+</div>
+
+<script src="{% static 'javascript/index.js' %}"></script>
+
+{% endblock %}
