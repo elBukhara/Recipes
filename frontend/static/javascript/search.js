@@ -83,7 +83,7 @@ async function filter_search() {
 
     const container = document.querySelector('#search-results')
 
-    const datalist = document.querySelector('#list-ingredients');
+    const datalist = document.querySelector('#list-ingredients-select');
     const ingredientsListHTML = document.querySelector('#selected-ingredients');
 
     const viewMoreCategoriesDiv = document.querySelector('#view-more-categories-div');
