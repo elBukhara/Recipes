@@ -45,6 +45,7 @@ function preview_recipe(id) {
             console.log(meal)
 
             // Set category and area
+            document.querySelector('#modal-title-food').textContent = meal.strMeal;
             document.querySelector('#category').textContent = meal.strCategory;
             document.querySelector('#area').textContent = meal.strArea;
 

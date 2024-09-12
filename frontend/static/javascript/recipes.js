@@ -80,7 +80,8 @@ function preview_recipe(id) {
             document.querySelector('#render-instruction-page').value = meal.idMeal
 
             // Set category and area
-            document.querySelector('#category').textContent = meal.strCategory;
+            document.querySelector('#modal-title-food').textContent = meal.strMeal;
+            document.querySelector('#category').textContent = meal.strArea;
             document.querySelector('#area').textContent = meal.strArea;
             
             // Set ingredients and measures
