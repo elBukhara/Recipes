@@ -1,7 +1,7 @@
 from .base import *
 
 DEBUG = False
-ALLOWED_HOSTS = env('ALLOWED_HOSTS')
+ALLOWED_HOSTS = list(env('ALLOWED_HOSTS'))
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
