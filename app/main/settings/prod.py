@@ -2,6 +2,7 @@ from .base import *
 
 DEBUG = False
 ALLOWED_HOSTS = list(env('ALLOWED_HOSTS'))
+CSRF_TRUSTED_ORIGINS = list(env('CSRF_TRUSTED_ORIGINS'))
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
